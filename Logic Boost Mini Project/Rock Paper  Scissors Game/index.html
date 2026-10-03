@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #282c34;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 { margin-bottom: 20px; }
+        
+        .game-container {
+            background: #3b404e;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            width: 400px;
+        }
+
+        .choices {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-weight: bold;
+        }
+
+        /* Distinct colors for buttons */
+        .btn-rock { background-color: #ff6b6b; color: white; }
+        .btn-paper { background-color: #4ecdc4; color: black; }
+        .btn-scissor { background-color: #ffe66d; color: black; }
+
+        button:hover { transform: scale(1.1); }
+
+        .result-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: #21252b;
+            border-radius: 10px;
+            min-height: 80px;
+        }
+
+        .comp-display {
+            color: #aaa;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        #final-message {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #61dafb; /* React Blue color for text */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <h1>Rock, Paper, Scissor</h1>
+        <p>Click a button to play:</p>
+
+        <div class="choices">
+            <button class="btn-rock" onclick="sendChoice('rock')">Rock</button>
+            <button class="btn-paper" onclick="sendChoice('paper')">Paper</button>
+            <button class="btn-scissor" onclick="sendChoice('scissor')">Scissor</button>
+        </div>
+
+        <div class="result-box">
+            <div class="comp-display" id="comp-display">Computer is waiting...</div>
+            <div id="final-message"></div>
+        </div>
+    </div>
+
+    <script>
+        function sendChoice(userChoice) {
+            // 1. Send the choice to your Python backend
+            fetch('/play', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ choice: userChoice }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 2. Update the HTML with the response from Python
+                document.getElementById('comp-display').innerText = "Computer Chose: " + data.comp_choice;
+                document.getElementById('final-message').innerText = data.message;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Analytics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>MySales</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard Overview</a></li>
+                    <li><a href="perf.html">Product Performance</a></li>
+                    <li><a href="regional.html">Regional Sales</a></li>
+                    <li class="active"><a href="customer-analytics.html">Customer Analytics</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="dashboard-header">
+                <h1>Customer Analytics</h1>
+            </header>
+
+            <main class="main-content">
+                <section class="kpi-section">
+                    <div class="kpi-card">
+                        <h3>Total Customers</h3>
+                        <p id="total-customers-kpi"></p>
+                    </div>
+                    <div class="kpi-card">
+                        <h3>New Customers (Last 30 Days)</h3>
+                        <p id="new-customers-kpi"></p>
+                    </div>
+                    <div class="kpi-card">
+                        <h3>Customer Churn Rate</h3>
+                        <p id="churn-rate-kpi"></p>
+                    </div>
+                </section>
+                <section class="charts-container">
+                    <div class="chart-card">
+                        <h2>Customer Cohort Analysis</h2>
+                        <canvas id="customer-cohort-chart"></canvas>
+                    </div>
+                </section>
+                <section class="data-table-section">
+                    <h2>Customer Data</h2>
+                    <div class="table-wrapper">
+                        <table id="customer-data-table">
+                            <thead>
+                                <tr>
+                                    <th>Customer ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Total Spent</th>
+                                    <th>Last Purchase Date</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="customer-analytics.js"></script>
+</body>
+</html>

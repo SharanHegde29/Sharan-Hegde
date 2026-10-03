@@ -1,0 +1,100 @@
+/* performance.css */
+:root {
+    --primary-color: #007bff;
+    --background-color: #f4f7fa;
+    --card-background: #ffffff;
+    --text-color: #343a40;
+    --border-color: #dee2e6;
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.07);
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 2rem;
+}
+
+.performance-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.performance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.performance-header h1 {
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.back-link {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.back-link:hover {
+    background-color: #0056b3;
+}
+
+.performance-content {
+    display: grid;
+    gap: 2rem;
+}
+
+.chart-card, .table-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 400px; 
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+#performance-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#performance-table th,
+#performance-table td {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#performance-table thead th {
+    background-color: #e9ecef;
+    font-weight: bold;
+}
+
+#performance-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+

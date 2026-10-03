@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>MySales</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="index.html">Dashboard Overview</a></li>
+                    <li><a href="perf.html">Product Performance</a></li>
+                    <li><a href="regional.html">Regional Sales</a></li>
+                    <li><a href="customer-analytics.html">Customer Analytics</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="dashboard-header">
+                <h1>Sales Analysis Dashboard</h1>
+            </header>
+
+            <main class="main-content">
+                <section class="filter-section">
+                    <div class="date-filter">
+                        <label for="date-range"><strong>Data Range:</strong></label>
+                        <select id="date-range">
+                            <option value="all-time">All Time</option>
+                            <option value="last-7-days">Last 7 Days</option>
+                            <option value="last-30-days" selected>Last 30 Days</option>
+                        </select>
+                    </div>
+                    <div class="action-area">
+                        <a href="add-item.html" class="action-btn">Add New Sale</a>
+                    </div>
+                </section>
+
+                <section class="kpi-cards">
+                    <div class="kpi-card">
+                        <div class="kpi-label"><strong>Total Revenue</strong></div>
+                        <div class="kpi-value" id="total-revenue">$0</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label"><strong>Orders</strong></div>
+                        <div class="kpi-value" id="total-orders">0</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label"><strong>Average Order Value</strong></div>
+                        <div class="kpi-value" id="avg-order-value">$0</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label"><strong>Customers</strong></div>
+                        <div class="kpi-value" id="new-customers">0</div>
+                    </div>
+                </section>
+
+                <section class="charts-container">
+                    <div class="chart-card">
+                        <h2>Monthly Sales Trend</h2>
+                        <canvas id="sales-line-chart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h2>Top 5 Selling Products</h2>
+                        <canvas id="product-bar-chart"></canvas>
+                    </div>
+                </section>
+                
+                <section class="data-table-section">
+                    <h2>Recent Orders</h2>
+                    <div class="table-wrapper">
+                        <table id="sales-data-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Product</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Actions</th> 
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

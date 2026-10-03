@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regional Sales Analysis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>MySales</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard Overview</a></li>
+                    <li><a href="perf.html">Product Performance</a></li>
+                    <li class="active"><a href="regional.html">Regional Sales</a></li>
+                    <li><a href="customer-analytics.html">Customer Analytics</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="dashboard-header">
+                <h1>Regional Sales Analysis</h1>
+            </header>
+
+            <main class="main-content">
+                <section class="filter-section">
+                    <div class="date-filter">
+                        <label for="date-range"><strong>Data Range:</strong></label>
+                        <select id="date-range">
+                            <option value="all-time">All Time</option>
+                            <option value="last-7-days">Last 7 Days</option>
+                            <option value="last-30-days" selected>Last 30 Days</option>
+                        </select>
+                    </div>
+                </section>
+
+                <section class="charts-container">
+                    <div class="chart-card">
+                        <h2>Top Selling Products by State</h2>
+                        <div id="regional-product-chart-container">
+                            <canvas id="regional-product-chart"></canvas>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="data-table-section">
+                    <h2>State-wise Sales Summary</h2>
+                    <div class="table-wrapper">
+                        <table id="regional-sales-table">
+                            <thead>
+                                <tr>
+                                    <th>State</th>
+                                    <th>Total Revenue</th>
+                                    <th>Top Product</th>
+                                    <th>Orders</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="regional.js"></script> 
+</body>
+</html>
